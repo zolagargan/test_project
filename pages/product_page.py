@@ -40,7 +40,7 @@ class ProductPage(BasePage):
     def is_element_in_message(self, element_how, element_what, message_how, message_what):
         element = self.browser.find_element(element_how, element_what).text
         message = self.browser.find_element(message_how, message_what).text
-        if element in message:
+        if element == message:
             return True
         return False
 

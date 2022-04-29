@@ -30,11 +30,13 @@ class ProductPage(BasePage):
 
 
     def message_product_name_is_correct(self):
-        assert self.is_element_in_message(*ProductPageLocators.PRODUCT_NAME, *ProductPageLocators.ADD_PRODUCT_MESSAGE), "different product name"
+        assert self.is_element_in_message(*ProductPageLocators.PRODUCT_NAME,\
+             *ProductPageLocators.ADD_PRODUCT_MESSAGE), "different product name"
     
 
     def message_basket_cost_is_correct(self):
-        assert self.is_element_in_message(*ProductPageLocators.PRODUCT_PRICE, *ProductPageLocators.BASKET_COST_MESSAGE), "basket cost is not equal product price"
+        assert self.is_element_in_message(*ProductPageLocators.PRODUCT_PRICE,\
+             *ProductPageLocators.BASKET_COST_MESSAGE), "basket cost is not equal product price"
 
 
     def is_element_in_message(self, element_how, element_what, message_how, message_what):
@@ -60,6 +62,16 @@ class ProductPage(BasePage):
             print("No second alert presented")
 
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should disappear"
+
+
     def shoud_add_product_to_basket(self):
         self.should_be_add_to_basket_button()
         self.add_product_to_basket()
@@ -70,3 +82,4 @@ class ProductPage(BasePage):
         self.should_be_product_price()
         self.message_product_name_is_correct()
         self.message_basket_cost_is_correct()
+    

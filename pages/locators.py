@@ -16,3 +16,4 @@ class ProductPageLocators():
     PRODUCT_PRICE=(By.CSS_SELECTOR,".product_main .price_color")
     ADD_PRODUCT_MESSAGE=(By.CSS_SELECTOR,"#messages .alert:nth-child(1) .alertinner strong")
     BASKET_COST_MESSAGE=(By.CSS_SELECTOR,"#messages .alert:nth-child(3) .alertinner strong")
+    SUCCESS_MESSAGE=(By.CSS_SELECTOR,"#messages .alert:nth-child(1)")
